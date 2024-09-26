@@ -1,0 +1,36 @@
+//objeto JSON: Javascript Object Notation
+//uma sala de aula tem uma quantidade arbitrária de alunos
+//Amanda, 21 anos
+//Guilherme, 17 anos
+//Kelvin, 20 anos
+
+[
+  {
+    "nome": "Amanda",
+    "idade": 27,
+  },
+  {
+    "nome": "Renan",
+    "idade": 21
+  }
+]
+
+
+//uma pessoa se chama Maria e tem 20 anos e mora na Rua B, numero 34
+{
+  "nome": "Maria",
+  "idade": 20,
+  "endereco": {
+    "logradouro": "Rua B",
+    "numero": 34
+  }
+}
+
+
+
+
+
+{
+  "nome": "Ana",
+  "idade": 17
+}
