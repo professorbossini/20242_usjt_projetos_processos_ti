@@ -18,12 +18,21 @@ app.get("/hello", (req, res) => {
 })
 
 //POST /pergunte-ao-chatgpt
-app.post('/pergunte-ao-chatgpt', (req, res) => {
+app.post('/pergunte-ao-chatgpt', async (req, res) => {
   const openai = new OpenAI(OPENAI_API_KEY)
-  const prompt = req.body.prompt
   //operador de desestruturação
   // const { prompt } = req.body
+  const prompt = req.body.prompt
+  const model = 'gpt-4o-mini'
+  const role = 'user'
+  const max_tokens = 50
+  const completion = await openai.chat.completions.create({
+    messages: [{role: role, content: prompt}],
+    model: model,
+    max_tokens: max_tokens
+  })
 
+  res.json({completion: completion.choices[0].message.content})
 })
 
 app.listen(3000, () => console.log('Servidor ok'))
