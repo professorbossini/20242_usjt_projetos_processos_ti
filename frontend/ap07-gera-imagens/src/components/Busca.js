@@ -13,20 +13,29 @@ export class Busca extends Component {
   onTermoAlterado = (e) => {
     console.log(e.target.value)
   }
+
+  onFormSubmit = (event) => {
+    event.preventDefault()
+    this.props.onBuscaRealizada(this.state.termoDeBusca)
+  }
+
   render() {
     return (
-      <div className='flex flex-column'>
-        <IconField iconPosition='left'>
-          <InputIcon className='pi pi-search'/>
-          <InputText
-            className='w-full'
-            onChange={this.onTermoAlterado} 
-            placeholder='O que você quer ver?'/>
-        </IconField>
-        <Button 
-          label='OK'
-          className='w-full p-button-outlined mt-2'/>
-      </div>
+      <form
+        onSubmit={this.onFormSubmit}>
+        <div className='flex flex-column'>
+          <IconField iconPosition='left'>
+            <InputIcon className='pi pi-search'/>
+            <InputText
+              className='w-full'
+              onChange={this.onTermoAlterado} 
+              placeholder='O que você quer ver?'/>
+          </IconField>
+          <Button 
+            label='OK'
+            className='w-full p-button-outlined mt-2'/>
+        </div>
+      </form>
     )
   }
 }
